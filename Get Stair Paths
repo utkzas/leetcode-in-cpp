@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<string> stairPaths(int n)
+{
+    if(n==0)
+    {
+        vector <string> base;
+        base.push_back("");
+        return base;
+    } else if(n<0)
+    {
+        vector<string> base;
+        return base;
+    }
+    vector<string> paths1=stairPaths(n-1);
+    vector<string> paths2=stairPaths(n-2);
+    vector<string> paths3=stairPaths(n-3);
+    vector<string> paths;
+    
+    for(string path:paths1)
+    {
+        paths.push_back('1'+path);
+    }
+    
+    for(string path:paths2)
+    {
+        paths.push_back('2'+path);
+    }
+    for(string path:paths3)
+    {
+        paths.push_back('3'+path);
+    }
+    return paths;
+}
+
+int main() {
+	// your code goes here
+	int n;
+	cin>>n;
+	
+	vector<string> ans = stairPaths(n);
+    int cnt = 0;
+
+    cout << '[';
+    for (string x : ans){
+        if (cnt != ans.size() - 1)
+            cout << x << ", ";
+        else
+            cout << x;
+        cnt++;
+    }
+    cout << ']';
+    
+	return 0;
+}

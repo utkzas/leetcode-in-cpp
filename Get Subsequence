@@ -15,7 +15,7 @@ vector<string> gss(string s){
 
     vector<string> rres = gss(ros);
     vector<string> mres;
-
+    
     for (string s : rres){
         mres.push_back(s);
     }
