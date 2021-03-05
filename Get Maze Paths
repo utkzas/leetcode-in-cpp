@@ -16,14 +16,11 @@ vector <string> getMazePaths(int sr, int sc, int dr, int dc) {
  }
  vector <string> hpaths;
  vector<string> vpaths;
- vector<string> dpaths;
- 
  vector<string> paths;
  if(sc<dc)
  hpaths=getMazePaths(sr,sc+1,dr,dc);
  if(sr<dr)
  vpaths=getMazePaths(sr+1,sc,dr,dc);
- dpaths=getMazePaths(sr+1,sc+1,dr,dc);
  
  for(string hpath: hpaths)
  paths.push_back("h"+hpath);

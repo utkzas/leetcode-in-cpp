@@ -14,22 +14,36 @@ vector <string> getMazePaths(int sr, int sc, int dr, int dc) {
      ans.push_back("");
      return ans;
  }
- vector <string> hpaths;
- vector<string> vpaths;
- vector<string> dpaths;
+
  
  vector<string> paths;
- if(sc<dc)
- hpaths=getMazePaths(sr,sc+1,dr,dc);
- if(sr<dr)
- vpaths=getMazePaths(sr+1,sc,dr,dc);
- dpaths=getMazePaths(sr+1,sc+1,dr,dc);
- 
- for(string hpath: hpaths)
- paths.push_back("h"+hpath);
- for(string vpath: vpaths)
- paths.push_back("v"+vpath);
- 
+ //horizontal
+ for(int ms=1;ms<=dc-sc;ms++)
+ {
+     vector<string>hpaths=getMazePaths(sr,sc+ms,dr,dc);
+     for(string hpath:hpaths)
+     {
+         paths.push_back("h"+(to_string)(ms)+hpath);
+     }
+ }
+ //vertical
+ for(int ms=1;ms<=dr-sr;ms++)
+ {
+     vector<string>vpaths=getMazePaths(sr+ms,sc,dr,dc);
+     for(string vpath:vpaths)
+     {
+         paths.push_back("v"+(to_string)(ms)+vpath);
+     }
+ }
+ //diagonal
+ for(int ms=1;ms<=dc-sc;ms++)
+ {
+     vector<string>dpaths=getMazePaths(sr+ms,sc+ms,dr,dc);
+     for(string dpath:dpaths)
+     {
+         paths.push_back("d"+(to_string)(ms)+dpath);
+     }
+ }
  return paths;
 }
 
