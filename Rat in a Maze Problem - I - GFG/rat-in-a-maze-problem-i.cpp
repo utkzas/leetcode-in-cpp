@@ -38,6 +38,7 @@ class Solution{
     }
 };
 
+
     
 
 
@@ -57,6 +58,7 @@ int main() {
         }
         Solution obj;
         vector<string> result = obj.findPath(m, n);
+        sort(result.begin(), result.end());
         if (result.size() == 0)
             cout << -1;
         else
