@@ -33,5 +33,9 @@ public:
 
 // Brute Force: TC: O(n1+n2), SC: O(n1+n2) : create a dummy head and dummy tail. iterate over both heads of the LLs. compare, whichever is larger must have it's value copied into new dummy node (another dummy tail) . through this way, dummy head and dummy tails make up a new LL which is the merged list. this will take extra spacec
 
-//Optimized: TC: O(n1+n2) SC: O(1) as it was inplace: 
+/*Optimized: TC: O(n1+n2) SC: O(1) as it was inplace: 
+keep list1 as value with smaller one
+create a node temp. keep moving list1 until it's lesser than list2. once you encounter larger element in list1 than list2's curr. break the chain and shift the ptr by swapping the nodes. now again second iteration
+*/
+
 
