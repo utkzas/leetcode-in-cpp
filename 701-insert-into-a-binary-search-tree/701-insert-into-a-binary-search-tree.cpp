@@ -39,3 +39,21 @@ public:
         return root;
     }
 };
+
+/* Recursive
+TreeNode* insertIntoBST(TreeNode* root, int key)  {
+   if(root==NULL)
+   return new TreeNode(Key);
+   
+   if(root->data==Key)
+   return root;
+   
+   if(Key<root->data)
+   root->left=insert(root->left,Key);
+   
+   else
+   root->right=insert(root->right,Key);
+   
+   return root;
+}
+*/
