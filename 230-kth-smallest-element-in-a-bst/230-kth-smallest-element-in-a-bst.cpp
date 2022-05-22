@@ -22,13 +22,16 @@ Iterative and recursive traversal will give TC: O(N) SC: O(N)
 But Morris Treversal will give TC:(N) SC: O(1)
 */
 /*
-Recursive
+            Recursive
 Time complexcity O(H+K) H is height of bst
 Space complexcity O(1)
+            Iterative
+Time complexcity O(H+K) H is height of bst
+Space complexcity O(H+K)
     */
 class Solution {
-public:
-    int kthSmallest(TreeNode* root, int &k) { // added a & here. but why?
+public: // Recursive Solution
+    int kthSmallestRec(TreeNode* root, int &k) { // added a & here. but why?
         if(root==NULL) return -1;
         
         int left=kthSmallest(root->left,k); // left call
@@ -41,4 +44,24 @@ public:
         
         return -1; // no answer from this call ;( return -1
     }
+    
+ public: //Iterative Solution
+    int kthSmallest(TreeNode* root, int k) 
+    {
+        stack<TreeNode *> stk;
+        while(1)
+        {
+            while(root!=NULL)
+            {
+                stk.push(root);
+                root=root->left;
+            }
+            root=stk.top();
+            stk.pop();
+            k--;
+            if(k==0) return root->val;
+            root=root->right;
+        }
+    }
 };
+
