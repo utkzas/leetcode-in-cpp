@@ -21,6 +21,11 @@ TC:
 Iterative and recursive traversal will give TC: O(N) SC: O(N)
 But Morris Treversal will give TC:(N) SC: O(1)
 */
+/*
+Recursive
+Time complexcity O(H+K) H is height of bst
+Space complexcity O(1)
+    */
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int &k) { // added a & here. but why?
